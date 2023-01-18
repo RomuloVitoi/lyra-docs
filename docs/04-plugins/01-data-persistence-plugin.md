@@ -69,7 +69,7 @@ await insert(originalInstance, {
 });
 ```
 
-## Persisting the database to disk[​](https://docs.lyrasearch.io/plugins/plugin-data-persistence#persisting-the-database-to-disk) <a href="#persisting-the-database-to-disk" id="persisting-the-database-to-disk"></a>
+## Persisting the database to disk[​](https://docs.lyrasearch.io/plugins/data-persistence-plugin#persisting-the-database-to-disk) <a href="#persisting-the-database-to-disk" id="persisting-the-database-to-disk"></a>
 
 Now we have a Lyra instance containing three quotes. We can use the
 `plugin-data-persistence` plugin to save the database to a file:
@@ -77,14 +77,14 @@ Now we have a Lyra instance containing three quotes. We can use the
 ```javascript
 import { persistToFile } from "@lyrasearch/plugin-data-persistence";
 
-const filePath = persistToFile(originalInstance, "binary", "./quotes.msp");
+const filePath = await persistToFile(originalInstance, "binary", "./quotes.msp");
 ```
 
-## Restore the database from disk[​](https://docs.lyrasearch.io/plugins/plugin-data-persistence#restore-the-database-from-disk) <a href="#restore-the-database-from-disk" id="restore-the-database-from-disk"></a>
+## Restore the database from disk[​](https://docs.lyrasearch.io/plugins/data-persistence-plugin#restore-the-database-from-disk) <a href="#restore-the-database-from-disk" id="restore-the-database-from-disk"></a>
 
 To restore the database from the disk:
 
 ```javascript
 import { restoreFromFile } from "@lyrasearch/plugin-data-persistence";
-const db = restoreFromFile("binary", filePath);
+const db = await restoreFromFile("binary", filePath);
 ```
